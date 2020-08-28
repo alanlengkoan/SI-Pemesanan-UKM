@@ -1,0 +1,12 @@
+lewat 1 logic masuk
+hilangkan 
+disable
+
+event onclick datepicker
+
+moment
+
+$host   = "localhost";
+$dbuser = "u840449843_means";
+$dbpass = "si_ukmdesatritiro";
+$dbname = "u840449843_means";

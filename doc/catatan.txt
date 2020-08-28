@@ -1,0 +1,20 @@
+ if ($akunyangcocok > 0) {
+            //and sukses login
+            //mendapatkan akun dalam bentuk array
+            $akun = $ambil->fetch_assoc();
+
+            //simpan di session pelanggan
+           
+            $_SESSION["pelanggan"] = $akun;    
+            echo "<script>alert('anda sukses login');</script>";
+            echo "<script>location='keranjanguser.php';</script>";
+        
+            //jika sudah belanja
+            if (isset($_SESSION["keranjang"]) OR !empty ($_SESSION["keranjang"]))
+            {
+                echo "<script>location='checkout.php';</script>";
+            }
+            else {
+                echo "<script>location='riwayat.php';</script>";
+            }
+        }
