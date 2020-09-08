@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: 28 Agu 2020 pada 12.49
+-- Generation Time: 08 Sep 2020 pada 19.51
 -- Versi Server: 10.1.44-MariaDB-0ubuntu0.18.04.1
 -- PHP Version: 7.2.24-0ubuntu0.18.04.6
 
@@ -91,6 +91,14 @@ CREATE TABLE `pembayaran` (
   `bukti` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data untuk tabel `pembayaran`
+--
+
+INSERT INTO `pembayaran` (`id_pembayaran`, `id_pembelian`, `nama`, `bank`, `jumlah`, `tanggal`, `bukti`) VALUES
+(1, 4, 'test', 'tse', 3223232, '2020-08-30', 'Leaderboards-·-WakaTime-Programming-and-time-tracking-leaderboards.png'),
+(2, 2, 'asd', 'qwe', 32, '2020-08-30', 'Leaderboards-·-WakaTime-Programming-and-time-tracking-leaderboards.png');
+
 -- --------------------------------------------------------
 
 --
@@ -110,6 +118,17 @@ CREATE TABLE `pembelian` (
   `resi_pengiriman` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data untuk tabel `pembelian`
+--
+
+INSERT INTO `pembelian` (`id_pembelian`, `id_pelanggan`, `id_ongkir`, `tanggal_pembelian`, `total_pembelian`, `nama_kota`, `tarif`, `alamat_pengiriman`, `status_pembelian`, `resi_pengiriman`) VALUES
+(1, 2, 1, '2020-08-28', 30000, 'Makassar', 20000, 'test', 'pending', NULL),
+(2, 2, 0, '2020-08-29', 10000, '', 0, '', 'sudah kirim pembayaran', NULL),
+(3, 2, 1, '2020-08-30', 30000, 'Makassar', 20000, '', 'pending', NULL),
+(4, 2, 0, '2020-08-30', 10000, '', 0, '', 'sudah kirim pembayaran', NULL),
+(5, 2, 0, '2020-08-30', 10000, '', 0, '', 'pending', NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -128,6 +147,17 @@ CREATE TABLE `pembelian_produk` (
   `subharga` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data untuk tabel `pembelian_produk`
+--
+
+INSERT INTO `pembelian_produk` (`id_pembelian_produk`, `id_pembelian`, `id_produk`, `jumlah`, `nama`, `harga`, `berat`, `subberat`, `subharga`) VALUES
+(1, 1, 1, 1, 'Test', 10000, 23, 23, 10000),
+(2, 2, 1, 1, 'Test', 10000, 23, 23, 10000),
+(3, 3, 1, 1, 'Test', 10000, 23, 23, 10000),
+(4, 4, 1, 1, 'Test', 10000, 23, 23, 10000),
+(5, 5, 1, 1, 'Test', 10000, 23, 23, 10000);
+
 -- --------------------------------------------------------
 
 --
@@ -143,6 +173,13 @@ CREATE TABLE `produk` (
   `deskripsi_produk` text NOT NULL,
   `stok_produk` int(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `produk`
+--
+
+INSERT INTO `produk` (`id_produk`, `nama_produk`, `harga_produk`, `berat_produk`, `foto_produk`, `deskripsi_produk`, `stok_produk`) VALUES
+(1, 'Test', 10000, 23, 'unnamed.jpg', 'test', -1);
 
 -- --------------------------------------------------------
 
@@ -264,22 +301,22 @@ ALTER TABLE `ongkir`
 -- AUTO_INCREMENT for table `pembayaran`
 --
 ALTER TABLE `pembayaran`
-  MODIFY `id_pembayaran` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_pembayaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `pembelian`
 --
 ALTER TABLE `pembelian`
-  MODIFY `id_pembelian` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_pembelian` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `pembelian_produk`
 --
 ALTER TABLE `pembelian_produk`
-  MODIFY `id_pembelian_produk` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_pembelian_produk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `produk`
 --
 ALTER TABLE `produk`
-  MODIFY `id_produk` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_produk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `profilukm`
 --
@@ -289,7 +326,7 @@ ALTER TABLE `profilukm`
 -- AUTO_INCREMENT for table `tb_user`
 --
 ALTER TABLE `tb_user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
